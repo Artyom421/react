@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import { Scrtipt } from './components/script';
+import { ScriptTitle } from './components/scripttitle';
+import { Colors } from './components/colors';
 
-function App() {
+const App = () => {
+
+  const [state, setState] = useState(0)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <div>
+        <input type="text" value={state} />
+        <div className='buttons'>
+          <button onClick={ () => setState(state - 1)}>-</button>
+          <button onClick={ () => setState(state + 1)}>+</button>
+        </div>
+      </div>
+        <Scrtipt/>
+        <ScriptTitle/>
+        <Colors/> 
     </div>
   );
 }
